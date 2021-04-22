@@ -5,9 +5,6 @@ namespace JurassicPark
 {
     class Program
     {
-
-
-
         // Create a class to represent your dinosaurs.
         class Dinosaur
         {
@@ -37,25 +34,26 @@ namespace JurassicPark
             while (keepRunning)
             {
                 Console.WriteLine("What would you like to do?");
+                Console.WriteLine("(A)dd, (R)emove, (T)ransfer, (S)ummary, or (Q)uit");
                 userChoice = Console.ReadLine().ToLower();
                 switch (userChoice)
                 {
-                    case "v":
+                    case "v" or "view":
                         ViewDinos(dinos);
                         break;
-                    case "a":
+                    case "a" or "add":
                         AddDino(dinos);
                         break;
-                    case "r":
+                    case "r" or "remove":
                         RemoveDino(dinos);
                         break;
-                    case "t":
+                    case "t" or "transfer":
                         TransferDino(dinos);
                         break;
-                    case "s":
+                    case "s" or "summary":
                         Summary(dinos);
                         break;
-                    case "q":
+                    case "q" or "quit":
                         return;
                     default:
                         Console.WriteLine("Sorry, I didn't understand.");
@@ -140,9 +138,6 @@ namespace JurassicPark
                 Console.WriteLine($"{name} Removed.");
                 dinos.RemoveAt(index);
             }
-
-
-
         }
 
         private static void AddDino(List<Dinosaur> dinos)
@@ -154,7 +149,13 @@ namespace JurassicPark
             Console.WriteLine("Adding new Dinosaur...");
 
             var name = PromptForString("What is the Dinosaur's name? ");
-            var dietType = PromptForString("What is the Dinosaur's Diet Type? ").ToLower();
+            var dietType = PromptForString("What is the Dinosaur's Diet Type? (C)arnivore or (H)erbivore? ").ToLower();
+
+            if (dietType == "c")
+                dietType = "carnivore";
+            else if (dietType == "h")
+                dietType = "herbivore";
+
             var weight = PromptForInt("What is the Dinosaur's weight ");
             var enclosureNumber = PromptForInt("What is the Enclosure Number? ");
             var whenAcquired = DateTime.Now.ToString("yyyy.MM.dd @ HH:mm:ss");
