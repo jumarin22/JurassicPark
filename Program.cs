@@ -129,7 +129,6 @@ namespace JurassicPark
             // Remove
             // This command will prompt the user for a dinosaur name then find and delete the dinosaur with that name.
 
-
             var name = PromptForString("What is the name of the Dinosaur that you want to Remove? ");
             int index = dinos.FindIndex(dino => name == dino.Name);
 
@@ -170,7 +169,6 @@ namespace JurassicPark
                 else
                     Console.WriteLine("Sorry, I didn't understand.");
             }
-
 
             var weight = PromptForInt("What is the Dinosaur's weight ");
             var enclosureNumber = PromptForInt("What is the Enclosure Number? ");
