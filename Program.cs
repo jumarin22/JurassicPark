@@ -54,7 +54,8 @@ namespace JurassicPark
                         Summary(dinos);
                         break;
                     case "q" or "quit":
-                        return;
+                        keepRunning = false;
+                        break;
                     default:
                         Console.WriteLine("Sorry, I didn't understand.");
                         break;
