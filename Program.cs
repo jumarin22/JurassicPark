@@ -34,7 +34,7 @@ namespace JurassicPark
             while (keepRunning)
             {
                 Console.WriteLine("What would you like to do?");
-                Console.WriteLine("(A)dd, (R)emove, (T)ransfer, (S)ummary, or (Q)uit");
+                Console.WriteLine("(V)iew, (A)dd, (R)emove, (T)ransfer, (S)ummary, or (Q)uit");
                 userChoice = Console.ReadLine().ToLower();
                 switch (userChoice)
                 {
@@ -150,12 +150,26 @@ namespace JurassicPark
             Console.WriteLine("Adding new Dinosaur...");
 
             var name = PromptForString("What is the Dinosaur's name? ");
-            var dietType = PromptForString("What is the Dinosaur's Diet Type? (C)arnivore or (H)erbivore? ").ToLower();
+            var dietType = "";
 
-            if (dietType == "c")
-                dietType = "carnivore";
-            else if (dietType == "h")
-                dietType = "herbivore";
+            var incorrectDietInput = true;
+            while (incorrectDietInput)
+            {
+                dietType = PromptForString("What is the Dinosaur's Diet Type? (C)arnivore or (H)erbivore? ").ToLower();
+                if (dietType == "c" || dietType == "carnivore")
+                {
+                    dietType = "carnivore";
+                    incorrectDietInput = false;
+                }
+                else if (dietType == "h" || dietType == "herbivores")
+                {
+                    dietType = "herbivore";
+                    incorrectDietInput = false;
+                }
+                else
+                    Console.WriteLine("Sorry, I didn't understand.");
+            }
+
 
             var weight = PromptForInt("What is the Dinosaur's weight ");
             var enclosureNumber = PromptForInt("What is the Enclosure Number? ");
