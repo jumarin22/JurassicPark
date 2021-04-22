@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace JurassicPark
 {
@@ -194,6 +195,7 @@ namespace JurassicPark
 
             if (dinos.Count > 0)
             {
+                var sortedDinos = dinos.OrderBy(dino => dino.WhenAcquired);
                 foreach (var dino in dinos)
                     Console.WriteLine(dino.Description());
             }
