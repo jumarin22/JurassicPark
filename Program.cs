@@ -170,7 +170,7 @@ namespace JurassicPark
                     Console.WriteLine("Sorry, I didn't understand.");
             }
 
-            var weight = PromptForInt("What is the Dinosaur's weight ");
+            var weight = PromptForInt("What is the Dinosaur's weight? ");
             var enclosureNumber = PromptForInt("What is the Enclosure Number? ");
             var whenAcquired = DateTime.Now.ToString("yyyy.MM.dd @ HH:mm:ss");
 
