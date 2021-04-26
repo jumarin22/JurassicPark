@@ -92,16 +92,8 @@ namespace JurassicPark
             // Summary
             // This command will display the number of carnivores and the number of herbivores.
 
-            var carny = 0;
-            var herby = 0;
-
-            foreach (var dino in dinos)
-            {
-                if (dino.DietType == "carnivore")
-                    carny++;
-                else if (dino.DietType == "herbivore")
-                    herby++;
-            }
+            var carny = dinos.Where(dino => dino.DietType == "carnivore").Count();
+            var herby = dinos.Where(dino => dino.DietType == "herbivore").Count();
 
             Console.WriteLine($"There are {carny} Carnivores and {herby} Herbivores.");
         }
